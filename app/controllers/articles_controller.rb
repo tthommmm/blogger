@@ -1,4 +1,15 @@
 class ArticlesController < ApplicationController
+	http_basic_authenticate_with name: "dhh", password: "secret",
+	execpt: [:index, :show]
+
+	def index 
+		@articles = Article.all
+		#render plain: params[:article].inspect
+		#'plain' => 'params[:article]'
+		#this action gets information from POST 
+	
+	end
+
 	def new
 		@article = Article.new
 		#hi
@@ -39,15 +50,6 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
 		#out of all the articles we have, we want to find the ones with params of id which we get from
-	end
-
-	def index 
-		@articles = Article.all
-				#render plain: params[:article].inspect
-		#'plain' => 'params[:article]'
-		#this action gets information from POST 
-		#params[:title]
-		#params[:text]
 	end
 
 	private def article_params
