@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   get 'articles/new' => 'articles#new'
 
   resources :posts
-  resources :articles
+
+  resources :articles do
+  	resources :comments
+  end
 end
