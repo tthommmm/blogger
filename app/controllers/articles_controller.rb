@@ -4,11 +4,10 @@ class ArticlesController < ApplicationController
 
 	def index 
 		@articles = Article.all
-				#render plain: params[:article].inspect
+		#render plain: params[:article].inspect
 		#'plain' => 'params[:article]'
 		#this action gets information from POST 
-		#params[:title]
-		#params[:text]
+	
 	end
 
 	def new
